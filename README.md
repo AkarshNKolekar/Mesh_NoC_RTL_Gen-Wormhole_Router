@@ -1,7 +1,7 @@
 # Mesh NoC RTL Generator with Wormhole Routers
 
-// Engineers: Akarsh Ningoji Rao Kolekar - akarsh.n.kolekar@gmail.com
-//            Abhishek Upadhyay - abhishek1upadhyay@gmail.com
+// Engineers: [Akarsh Ningoji Rao Kolekar](https://www.linkedin.com/in/akarshnkolekar/) - akarsh.n.kolekar@gmail.com
+//            [Abhishek Upadhyay](https://www.linkedin.com/in/abhishek-upadhyay-491506113/) - abhishek1upadhyay@gmail.com
 
 This is a NoC RTL generator which generates a Mesh topology with wormhole routers. 
 To run this, RTL simulator is required and for this project we have used Modelsim. 
