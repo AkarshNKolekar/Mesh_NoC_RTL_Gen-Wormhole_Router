@@ -1,7 +1,7 @@
-# gt-icn-s19_wormhole_noc_A
+# Mesh NoC RTL Generator with Wormhole Routers
 
 // Engineers: Akarsh Ningoji Rao Kolekar - akolekar6@gatech.edu
-//		Abhishek Upadhyay - aupadhyay31@gatech.edu
+//            Abhishek Upadhyay - aupadhyay31@gatech.edu
 
 This is a NoC RTL generator which generates a Mesh topology with wormhole routers. 
 To run this, RTL simulator is required and for this project we have used Modelsim. 
@@ -78,11 +78,7 @@ This test bench also dumps the number of cycles taken by a packet to reach its d
 The destinations of the packets can be changed by changing the head flit injected into the network (hence changing the traffic pattern).
 
 TO RUN:
-1) Open Mentor Graphics ModelSim software. On the Georgia Tech ECE Linux Machines, this can be done by the following:
-	i) Open a Terminal.
-	ii) Navigate to the top folder containing the src and testbenches folders.
-	ii) Type: source /tools/mentor/modelsim/ms106a/cshrc.modelsim
-	iii) Type: vsim &
+1) Open Mentor Graphics ModelSim software.
 
 2) Any file can opened from this view.
 
@@ -96,16 +92,3 @@ TO RUN:
 6) Then type "run -a" and press Enter. Packets will continuously be injected into the network until the value specified by "$finish" command in the test-bench. ModelSim will ask the user if they want to finish. Click on "No".
 
 7) In the Instance window, a mesh_NxN_inst would be present. There will be several genblk1 created. If making a 4x4 mesh, there will be 4 top level genblk1 created, inside each of these there will be 4 more genblk1 created. There will be a router_main_dut inside this. The router_main_dut will consist of north_buffer, east_buffer, south_buffer, west_buffer, local_buffer, route_compute and switch_allocator. Clicking on any of these will show the signals that can be viewed for them in the "Objects" window right next to it. To view a signal's waveform, right-click on that signal in the "Objects" window, and click on "Add Wave". The test-bench has a default timescale of 1ns/100ps, i.e., the x-axis of the waveform will be 1ns long with a granularity of marking as 100ps. The entire waveform upto the limit specified by "$finish" can be viewed by clicking on the waveform display window and pressing the "f" key. Keep an eye out for router_out_flit_4 signal of any router. These are the flits that have reached the destination router.
-
-FOR SYNTHESIS:
-1) Open a terminal
-
-2) Update synth/file_list.tcl with the RTL files. Top module must be at the first of the list. In this case, it would be mesh_general. No changes would have to be made unless more files are added.
-
-3) Update synth/run_synth with the top_level. This is set to "mesh_general" and need not be changed unless a different module wants to be synthesised. In this case, the file_list.tcl also needs to change.
-
-4) Go to synth folder. Type "source run_synth" and press Enter.
-
-5) Wait for synthesis to finish. Correct any error which pop up in the synthesis log available in synth_out/logs/run.log. There shouldn't be any error if no changes are made to the default files. You will see a few warnings, but these can be safely ignored.
-
-6) Area and Power values are available in synth_out/rpt/area.rpt and synth_out/rpt/power.rpt.
