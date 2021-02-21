@@ -35,7 +35,7 @@ The select signal of this switch is provided by round_robin_arbiter.sv.
 8) Router.sv - This module instantiates a router. Currently the routers are not parameterizable in terms of the number of ports. 
 The number of ports are fixed to 5.
 
-FOR USER TO EDIT
+FOR USER TO EDIT <br/>
 9) mesh_general.sv - This file takes in the configuration of the mesh topology for which RTL is to be generated. 
 
 MESH_COLUMNS specify the number of columns in the mesh and MESH_ROWS specifies the number of rows. 
